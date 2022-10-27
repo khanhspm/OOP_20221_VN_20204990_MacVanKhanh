@@ -98,6 +98,7 @@ public class Equation {
                     break;
             }
         }
+        sc.close();
     }
     
 
