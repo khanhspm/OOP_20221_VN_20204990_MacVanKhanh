@@ -20,6 +20,23 @@ public class DigitalVideoDisc {
 	public float getCost() {
 		return cost;
 	}
+	public DigitalVideoDisc(String title) {
+		super();
+		this.title = title;
+	}
+	public DigitalVideoDisc(String title, String catelory, float cost) {
+		super();
+		this.title = title;
+		this.catelory = catelory;
+		this.cost = cost;
+	}
+	public DigitalVideoDisc(String title, String catelory, String director, float cost) {
+		super();
+		this.title = title;
+		this.catelory = catelory;
+		this.director = director;
+		this.cost = cost;
+	}
 	public DigitalVideoDisc(String title, String catelory, String director, int length, float cost) {
 		super();
 		this.title = title;

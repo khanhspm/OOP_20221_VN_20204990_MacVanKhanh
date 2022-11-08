@@ -11,7 +11,12 @@ public class Aims {
 														"Geoger Lucas", 87, 24.95f);
 		anOrder.addDigitalVideoDisc(dvd2);
 		
+		DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation", 18.99f);
+		anOrder.addDigitalVideoDisc(dvd3);
+		
 		System.out.println("Total cost is: " + anOrder.totalCost());
+		anOrder.removeDigitalVideoDisc(dvd1);
+		System.out.println("Total cost after remove is: " + anOrder.totalCost());
 	}
 
 }
