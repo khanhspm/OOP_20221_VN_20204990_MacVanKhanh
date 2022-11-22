@@ -26,6 +26,15 @@ public class Cart {
 		}
 	}
 	
+	public void addDigitalVideoDisc(DigitalVideoDisc dvd1,DigitalVideoDisc dvd2) {
+		if(qtyOrdered == MAX_NUMBERS_ORDERED - 1) {
+			System.out.println("The cart is full.");
+		}else {
+			addDigitalVideoDisc(dvd1);
+			addDigitalVideoDisc(dvd2);
+		}
+	}
+	
 	public int searchDigitalVideoDisc(DigitalVideoDisc disc) {
 		int res = -1;
 		for (int i=0;i<this.qtyOrdered;i++) {
