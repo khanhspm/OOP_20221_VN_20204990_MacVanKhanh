@@ -1,3 +1,4 @@
+package aims.disc;
 
 public class DigitalVideoDisc {
 	private String title;
@@ -5,6 +6,7 @@ public class DigitalVideoDisc {
 	private String director;
 	private int length;
 	private float cost;
+	private static int nbDigitalVideoDiscs = 0;
 	public String getTitle() {
 		return title;
 	}
@@ -50,5 +52,15 @@ public class DigitalVideoDisc {
 		this.title = title2;
 	}
 
+	public String toString() {
+		return title + " " + catelory + " " + director + " " + length + " " + cost;
+	}
+	
+	public boolean isMatch(String title) {
+		if(this.title == title) {
+			return true;
+		}
+		else return false;
+	}
 	
 }

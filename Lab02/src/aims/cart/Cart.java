@@ -1,11 +1,9 @@
+package aims.cart;
+import aims.disc.DigitalVideoDisc;
 
 public class Cart {
 	private int qtyOrdered = 0;
 	private static final int MAX_NUMBERS_ORDERED = 20;
-
-	public void Cart() {
-		
-	}
 	
 	public int getQtyOrdered() {
 		return qtyOrdered;
@@ -79,6 +77,19 @@ public class Cart {
 			total += this.itemOrdered[i].getCost();
 		}
 		return total;
+	}
+	
+	public void print() {
+		for(int i = 0; i < itemOrdered.length; i++) {
+			itemOrdered[i].toString();
+			System.out.print("\n");
+		}
+	}
+	
+	public void SearchDVD(String title) {
+		for(int i = 0; i < itemOrdered.length; i++) {
+			if(itemOrdered[i].getTitle() == title) itemOrdered[i].toString();
+		}
 	}
 
 }
