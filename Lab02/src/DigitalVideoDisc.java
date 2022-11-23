@@ -45,5 +45,10 @@ public class DigitalVideoDisc {
 		this.length = length;
 		this.cost = cost;
 	}
+	public void set(String title2) {
+		// TODO Auto-generated method stub
+		this.title = title2;
+	}
+
 	
 }
