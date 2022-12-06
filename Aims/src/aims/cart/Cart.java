@@ -10,8 +10,16 @@ public class Cart {
 	
 	
 	public void addMedia(int id, String title, String category, float cost) {
-		if(!itemsOrdered.contains(category)) {
-			
+		Media media = new Media(id, title, category, cost);
+		if(!itemsOrdered.contains(media)){
+			itemsOrdered.add(media);
+		}
+	}
+
+	public void removeMedia(int id, String title, String category, float cost){
+		Media media = new Media(id, title, category, cost);
+		if(itemsOrdered.contains(media)){
+			itemsOrdered.remove(media);
 		}
 	}
 }
