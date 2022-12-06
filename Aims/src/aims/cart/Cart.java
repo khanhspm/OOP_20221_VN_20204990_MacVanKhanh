@@ -8,7 +8,10 @@ public class Cart {
 	
 	private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
 	
+	
 	public void addMedia(int id, String title, String category, float cost) {
-		
+		if(!itemsOrdered.contains(category)) {
+			
+		}
 	}
 }
