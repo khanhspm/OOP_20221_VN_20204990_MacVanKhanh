@@ -1,34 +1,41 @@
 package aims.media;
 
-public class Media {
-	protected int id;
-	protected String title;
-	protected String category;
-	protected float cost;
+import java.util.Comparator;
+
+public abstract class Media {
+	private int id;
+	private String title;
+	private String category;
+	private float cost;
+	public static final Comparator<Media> COMPARE_BY_TITLE_COST = 
+			new MediaComparatorByTitleCost();
+	public static final Comparator<Media> COMPARE_BY_COST_TITLE = 
+			new MediaComparatorByCostTitle();
 	
-	public int getId() {
-		return id;
+	public Media(String title){
+		this.setTitle(title);
+		this.setCategory("Unknown");
+		this.setCost(0.0f);
 	}
-	public void setId(int id) {
-		this.id = id;
+	
+	public Media(String title, float cost){
+		this.setTitle(title);
+		this.setCategory("Unknown");
+		this.setCost(cost);
 	}
+	
+	public Media(String title, String category, float cost){
+		this.setTitle(title);
+		this.setCategory(category);
+		this.setCost(cost);
+	}
+	
 	public String getTitle() {
 		return title;
 	}
+	
 	public void setTitle(String title) {
 		this.title = title;
-	}
-	public String getCategory() {
-		return category;
-	}
-	public void setCategory(String category) {
-		this.category = category;
-	}
-	public float getCost() {
-		return cost;
-	}
-	public void setCost(float cost) {
-		this.cost = cost;
 	}
 	
 	public Media(int id, String title, String category, float cost) {
@@ -38,11 +45,49 @@ public class Media {
 		this.category = category;
 		this.cost = cost;
 	}
-	public Media(String title, String category, float cost) {
-		super();
-		this.title = title;
-		this.category = category;
-		this.cost = cost;
+	
+	public int getId() {
+		return id;
 	}
 	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public String getCategory() {
+		return category;
+	}
+	
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public void setCost(float cost) {
+		this.cost = cost;
+	}
+
+	public float getCost() {
+		return cost;
+	}
+	
+	public boolean isMatch(String title) {
+		if (this.getTitle().contains(title)) {
+			return true;
+		}
+		return false;
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if (o instanceof Media) {
+			Media media = (Media) o;
+			if (this.title.equals(media.title)) {
+				return true;
+			}else {
+				return false;
+			}
+		}
+		return false;
+	}
 }
+	

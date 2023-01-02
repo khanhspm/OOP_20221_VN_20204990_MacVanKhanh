@@ -1,21 +1,48 @@
 package aims.media;
 
-public class Disc extends Media{
-	public Disc(int id, String title, String category, float cost) {
-		super(id, title, category, cost);
-		// TODO Auto-generated constructor stub
+public class Disc extends Media {
+	private String director;
+	private int length;
+	
+	public Disc(String title){
+		super(title);
+		this.director = "Anonymous";
+		this.length = 0;
 	}
-	public Disc(String title, String category, String director, int lenght, float cost) {
-		// TODO Auto-generated constructor stub
+	
+	public Disc(String title, float cost){
+		super(title, cost);
+		this.director = "Anonymous";
+		this.length = 0;
+	}
+	
+	public Disc(String title, String category, float cost){
+		super(title, cost);
+		this.director = "Anonymous";
+		this.length = 0;
+	}
+	
+	public Disc(String title, String category, String director, float cost){
 		super(title, category, cost);
+		this.director = director;
 	}
-	protected String director;
-	protected int length;
+
+	public Disc(String title, String category, String director, int length, float cost){
+		super(title, category, cost);
+		this.director = director;
+		this.length = length;
+	}
 	public String getDirector() {
 		return director;
+	}
+	public void setDirector(String director) {
+		this.director = director;
 	}
 	public int getLength() {
 		return length;
 	}
-	
+	public void setLength(int length) {
+		this.length = length;
+	}
+
 }
