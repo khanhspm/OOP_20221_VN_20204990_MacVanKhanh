@@ -17,7 +17,7 @@ public class Aims {
 		System.out.println("3. See current cart");
 		System.out.println("0. Exit");
 		System.out.println("--------------------------------");
-		System.out.println("Please choose a number: 0-1-2-3");
+		System.out.println("You choose a number: ");
 	}
 	
 	public static void storeMenu() {
@@ -29,7 +29,7 @@ public class Aims {
 		System.out.println("4. See current cart");
 		System.out.println("0. Back");
 		System.out.println("--------------------------------");
-		System.out.println("Please choose a number: 0-1-2-3-4");
+		System.out.println("You choose: ");
 	}
 	
 	public static void mediaDetailsMenu() {
@@ -39,7 +39,7 @@ public class Aims {
 		System.out.println("2. Play");
 		System.out.println("0. Back");
 		System.out.println("--------------------------------");
-		System.out.println("Please choose a number: 0-1-2");
+		System.out.println("You choose: ");
 	}
 	
 	public static void cartMenu() {
@@ -52,7 +52,7 @@ public class Aims {
 		System.out.println("5. Place order");
 		System.out.println("0. Back");
 		System.out.println("--------------------------------");
-		System.out.println("Please choose a number: 0-1-2-3-4-5");
+		System.out.println("You choose: ");
 	}
 	
 	public static void seeTheCart(Cart anOrder, Store store) {
