@@ -82,4 +82,35 @@ public class StoreScreen extends JFrame{
 		
 		return center;
 	}
+	
+	public static void main(String[] args) {
+		Store st = new Store();
+		
+		DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King","Animation","Roger Allers",87,19.95f);
+        DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars","Science Fiction","George Lucas",87,24.95f);
+        DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin","Animation", "Guy Ritchie", 77,18.99f);
+        DigitalVideoDisc dvd4 = new DigitalVideoDisc("The Lion King","Animation","Roger Allers",87,19.95f);
+        DigitalVideoDisc dvd5 = new DigitalVideoDisc("Star Wars","Science Fiction","George Lucas",87,24.95f);
+        DigitalVideoDisc dvd6 = new DigitalVideoDisc("Aladin","Animation", "Guy Ritchie", 77,18.99f);
+        
+        st.addMedia(dvd1);
+        st.addMedia(dvd2);
+        st.addMedia(dvd3);
+        st.addMedia(dvd4);
+        st.addMedia(dvd5);
+        st.addMedia(dvd6);
+        
+		new StoreScreen(st);
+		
+	}
+	
+	private class ButtonListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String s = e.getActionCommand();
+            System.out.println(s);
+
+        }
+    }
 }
