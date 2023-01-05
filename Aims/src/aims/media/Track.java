@@ -1,5 +1,9 @@
 package aims.media;
 
+import aims.exception.PlayerException;
+import javax.swing.*;
+import java.awt.*;
+
 public class Track {
 	private int length;
 	private String title;
@@ -20,10 +24,22 @@ public class Track {
 		this.title = title;
 	}
 	
-	public void play() {
-		System.out.println("Playing track: " + this.getTitle());
-		System.out.println("Track length: " + this.getLength());
-	}
+
+    public void play() throws PlayerException {
+        if(this.getLength() > 0){
+            System.out.println("Playing DVD: " + this.getTitle());
+            System.out.println("DVD length: " + this.getLength());
+            JFrame f = new JFrame();
+            f.setSize(400, 400);
+            JDialog d = new JDialog(f, "Playing disc...");
+            d.setLayout(new FlowLayout());
+            d.add(new JLabel("Playing DVD: " + this.getTitle()));
+            d.add(new JLabel("DVD length: " + this.getLength()));
+        }
+        else {
+            throw new PlayerException("ERROR: DVD length is non-positive!");
+        }
+    }
 	
 	@Override
 	public boolean equals(Object o) {

@@ -1,5 +1,6 @@
 package aims.media;
 
+import aims.exception.PlayerException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +15,18 @@ public class CompactDisc extends Disc implements Playable{
 	public CompactDisc(String title, String category, String director, int length, float cost){
 		super(title, category, director, length, cost);
 	}
+	
+	public CompactDisc(String title, String category, String director, int length, float cost, String artist, List<Track> tracks) {
+        super(title, category, director, length, cost);
+        this.artist = artist;
+        this.tracks = tracks ;
+    }
+	
+	public CompactDisc(String title, String category, String director, float cost, String artist) {
+		super(title, category, director, cost);
+        this.artist = artist;
+
+    }
 
 	public String getArtist() {
 		return artist;
@@ -43,11 +56,15 @@ public class CompactDisc extends Disc implements Playable{
 		return totalLength;
 	}
 	
-	public void play() {
-		for (Track tr: tracks) {
-			tr.play();
-		}
-	}
+	@Override
+    public void play() throws PlayerException {
+        System.out.println("Playing : " + this.getTitle());
+        System.out.println("Track length: " + this.getLength());
+        for (Track s:
+             tracks) {
+            s.play();
+        }
+    }
 
 	public String toString() {
 		StringBuilder res =  new StringBuilder();

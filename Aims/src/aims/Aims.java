@@ -1,6 +1,7 @@
 package aims;
 import java.util.Scanner;
 import aims.cart.Cart;
+import aims.exception.PlayerException;
 import aims.media.Book;
 import aims.media.CompactDisc;
 import aims.media.DigitalVideoDisc;
@@ -169,7 +170,12 @@ public class Aims {
 						}
 						if (found instanceof CompactDisc) {
 							CompactDisc media1 = (CompactDisc)found;
-							media1.play();
+							try {
+								media1.play();
+							} catch (PlayerException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 						}
 						break;
 					}
@@ -177,7 +183,7 @@ public class Aims {
 				break;
 			}
 			case 5: {
-				System.out.println("Order success!!!");
+				System.out.println("Ordered success!!!");
 				anOrder.getItemsOrdered().removeAll(anOrder.getItemsOrdered());
 				break;
 			}
@@ -266,7 +272,12 @@ public class Aims {
 								}
 								if (found instanceof CompactDisc) {
 									CompactDisc media = (CompactDisc)found;
-									media.play();
+									try {
+										media.play();
+									} catch (PlayerException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
 								}
 								break;
 							}
@@ -333,7 +344,12 @@ public class Aims {
 						}
 						if (found instanceof CompactDisc) {
 							CompactDisc media = (CompactDisc)found;
-							media.play();
+							try {
+								media.play();
+							} catch (PlayerException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 						}
 						break;
 					}

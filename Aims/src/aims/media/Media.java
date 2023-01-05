@@ -77,6 +77,10 @@ public abstract class Media {
 		return false;
 	}
 	
+	public boolean isMatch(int id) {
+        return (this.id == id);
+    }
+	
 	@Override
 	public boolean equals(Object o) {
 		if (o instanceof Media) {

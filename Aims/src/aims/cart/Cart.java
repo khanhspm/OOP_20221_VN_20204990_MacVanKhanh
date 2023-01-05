@@ -1,15 +1,20 @@
 package aims.cart;
 import java.util.ArrayList;
 import java.util.Scanner;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 
 import aims.media.Book;
 import aims.media.CompactDisc;
 import aims.media.DigitalVideoDisc;
 import aims.media.Media;
+import aims.exception.PlayerException;
 
 public class Cart {
 	public static final int MAX_NUMBER_ORDERED = 20;
 	private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
+	private ObservableList<Media> itemsOrdered2 = FXCollections.observableArrayList();
 	
 	public ArrayList<Media> getItemsOrdered() {
 		return itemsOrdered;
@@ -63,6 +68,18 @@ public class Cart {
 		System.out.println("**************************************************\n");
 	}
 	
+	public void playMedia(Media media) throws PlayerException {
+        if (media instanceof CompactDisc) {
+            ((CompactDisc) media).play();
+        }
+        if (media instanceof DigitalVideoDisc) {
+            ((DigitalVideoDisc) media).play();
+        }
+        if (media instanceof Book) {
+            System.out.println("Book cannot play");
+        }
+    }
+	
 	public void searchTitle() {
 		Scanner sc= new Scanner(System.in);    
 		System.out.print("Enter the title: ");  
@@ -88,6 +105,12 @@ public class Cart {
 			}
 		}
 	}
+	
+	public FilteredList<Media> searchByTitle(String title) {
+        FilteredList<Media> result = new FilteredList<>(this.itemsOrdered2, media -> {return media.isMatch(title);});
+
+        return result;
+    }
 	
 	public void searchId() {
 		Scanner sc= new Scanner(System.in);   
@@ -119,6 +142,12 @@ public class Cart {
 		sc.close();
 	}
 	
+	public FilteredList<Media> searchById(int id) {
+        FilteredList <Media> result = new FilteredList<>(this.itemsOrdered2, media -> {return media.isMatch(id);});
+
+        return result;
+    }
+	
 	public void sortCartByTitleCost() {
 		this.itemsOrdered.sort(Media.COMPARE_BY_TITLE_COST);
 	}
@@ -126,4 +155,8 @@ public class Cart {
 	public void sortCartByCostTitle() {
 		this.itemsOrdered.sort(Media.COMPARE_BY_COST_TITLE);
 	}
+	
+	public void emptyCart() {
+        this.itemsOrdered.clear();
+    }
 }
