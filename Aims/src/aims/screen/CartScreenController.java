@@ -8,6 +8,7 @@ import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.RadioButton;
@@ -95,7 +96,7 @@ public class CartScreenController {
         colMediaCost.setCellValueFactory(
                 new PropertyValueFactory<Media, String>("cost")
         );
-        tblMedia.setItems(this.cart.getItemsOrdered());
+        tblMedia.setItems((ObservableList<Media>) this.cart.getItemsOrdered());
 
         btnPlay.setVisible(false);
         btnRemove.setVisible(false);
